@@ -89,7 +89,8 @@ run_analysis <- function(dir){
     ##
     write.table(results, 
                 file = paste(dir,"/final_results.txt", sep=""),
-                quote = FALSE)
+                quote = FALSE,
+                row.names = FALSE)
     
     results
 
