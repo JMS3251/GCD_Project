@@ -30,8 +30,14 @@ View(data)
 1. Reads the activity_labels.txt file
 2. Sets up a vector of column numbers to include (66 total--all the "-mean()" and "-std()" features)
 3. Reads the features.txt file and edits the names for use as column headers
-4. Reads the three data files from the test subjects subdirectory:  
-  - subject_test.txt 2947 rows X 1 column of subject ID numbers (1-30)
-  - X_test.txt 2947 rows X 561 columns of feature data
-  - y_test.txt 2947 rows X 1 column of activity IDs (1-6)
+4. Reads the three data files from the test subjects subdirectory and creates data tables with meaningful column names for each:  
+  (a) subject_test.txt 2947 rows X 1 column of subject ID numbers (1-30)
+  (b) y_test.txt 2947 rows X 1 column of activity IDs (1-6)
+  (c) X_test.txt 2947 rows X 66 columns of feature data (subsetting from the full 561 feature set)
+  (d) Combines these into a new data table with dimensions 2947 rows X 68 columns 
+5. Repeats step 4 for the files in the training directory; these contain 7352 records each
+6. Combines the test and training data tables as follows:
+  (a) Column 1 is the Subject ID
+  (b) Column 2 is the activity
+  (c) Columns 3-68 are the mean and standard deviations feature data
 
