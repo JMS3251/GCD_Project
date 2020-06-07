@@ -30,16 +30,13 @@ View(data)
 1. Reads the activity_labels.txt file
 2. Sets up a vector of column numbers to include (66 total--all the "-mean()" and "-std()" features)
 3. Reads the features.txt file and edits the names for use as column headers
-4. Reads the three data files from the test subjects subdirectory and creates data tables with meaningful column names for each:  
-|   File | # Rows | # Columns  | Description |
-| ------------- | ------------- | ------------- | ------------- | 
-| subject_test.txt |  2947 | 1 | subject ID numbers (1-30) |
-| y_test.txt |  2947 | 1 | activity IDs (1-6) |
-| X_test.txt |  2947 | 66 | mean() and std() subset of feature data |
-  
+4. Reads the three data files from the test subjects subdirectory and creates data tables with meaningful column names for each.   
 5. Combines these into a new data test table with dimensions 2947 rows X 68 columns 
-5. Repeats step 4 for the files in the training directory; these contain 7352 records each
-6. Combines the test and training data tables where column 1 is the Subject ID, column 2 is the activity label, 
-and columns 3-68 have the feature data for the mean() and std().
+5. Repeats steps 4 and 5 for the files in the training directory; these contain 7352 records each
+6. Combines the test and training data tables into a single table where column 1 is the Subject ID, 
+column 2 is the activity label, and columns 3-68 have the feature data for the mean() and std().  The rows are 
+sorted by Subject ID in ascending order and then by activity label in descending order.
+7. Finally, the lapply function is used to compute the mean of each of the feature measurements in columns 3 through 68, 
+grouped by user and activity.  A final resuls file is written to the working directory.
   
 
